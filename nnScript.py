@@ -199,12 +199,12 @@ def nnObjFunction(params, *args):
     
     #Forward propogation
     #adding biases to input data with the size of training_data columns 
-    training_data = np.append(training_data,np.ones(training_data.shape[0]))
+    training_data = np.column_stack((training_data,np.ones(training_data.shape[0])))
     #Multiplying and making the function non linear
     zj_ hidden1  = sigmoid(np.dot(training_data, w1.T))
 
     #adding bias to hidden layer1 with the size of zj_hidden1 columns
-    zj_hidden1 = np.append(zj_hidden1,np.ones(zj_hidden1.shape[0])
+    zj_hidden1 = np.column_stack((zj_hidden1,np.ones(zj_hidden1.shape[0])))
     #Multiplying and making the function non linear
     output  = sigmoid(np.dot(zj_hidden1, w2.T))
 
