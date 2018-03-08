@@ -196,8 +196,19 @@ def nnObjFunction(params, *args):
     #
     #
     #
+    
+    #Forward propogation
+    #adding biases to input data with the size of training_data columns 
+    training_data = np.append(training_data,np.ones(training_data.shape[0]))
+    #Multiplying and making the function non linear
+    zj_ hidden1  = sigmoid(np.dot(training_data, w1.T))
 
+    #adding bias to hidden layer1 with the size of zj_hidden1 columns
+    zj_hidden1 = np.append(zj_hidden1,np.ones(zj_hidden1.shape[0])
+    #Multiplying and making the function non linear
+    output  = sigmoid(np.dot(zj_hidden1, w2.T))
 
+    #BackPropogation
 
     # Make sure you reshape the gradient matrices to a 1D array. for instance if your gradient matrices are grad_w1 and grad_w2
     # you would use code similar to the one below to create a flat array
